@@ -59,40 +59,43 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <div className="container">
-        <header className="header">
-          <div className="logo">
-            <Search className="logo-icon" />
-            <h1>Weather Forecast</h1>
-          </div>
-          <p className="subtitle">Get real-time weather information for any city</p>
-        </header>
+    <>
+      <div className="animated-bg" />
+      <div className="app">
+        <div className="container">
+          <header className="header">
+            <div className="logo">
+              <Search className="logo-icon" />
+              <h1>Weather Forecast</h1>
+            </div>
+            <p className="subtitle">Get real-time weather information for any city</p>
+          </header>
 
-        <WeatherSearch onSearch={handleSearch} loading={loading} />
+          <WeatherSearch onSearch={handleSearch} loading={loading} />
 
-        {error && (
-          <div className="error">
-            <p>{error}</p>
-          </div>
-        )}
+          {error && (
+            <div className="error">
+              <p>{error}</p>
+            </div>
+          )}
 
-        {weatherData && (
-          <div className="weather-content">
-            <CurrentWeather data={weatherData} location={location} />
-            {forecastData && <WeatherForecast data={forecastData} />}
-          </div>
-        )}
+          {weatherData && (
+            <div className="weather-content">
+              <CurrentWeather data={weatherData} location={location} />
+              {forecastData && <WeatherForecast data={forecastData} />}
+            </div>
+          )}
 
-        {!weatherData && !loading && !error && (
-          <div className="welcome">
-            <MapPin className="welcome-icon" />
-            <h2>Welcome to Weather Forecast</h2>
-            <p>Search for a city to get started</p>
-          </div>
-        )}
+          {!weatherData && !loading && !error && (
+            <div className="welcome">
+              <MapPin className="welcome-icon" />
+              <h2>Welcome to Weather Forecast</h2>
+              <p>Search for a city to get started</p>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
